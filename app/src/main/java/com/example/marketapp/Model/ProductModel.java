@@ -1,12 +1,28 @@
 package com.example.marketapp.Model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class ProductModel {
+    @SerializedName("id")
     private String id;
+    @SerializedName("Title")
     private String title;
+    @SerializedName("Description")
     private String description;
-    private String currentPrice;
+    @SerializedName("Prepricea")
     private String prePrice;
+    @SerializedName("Price")
+    private String Price;
+    @SerializedName("Url")
     private String imageUrl;
+
+    public String getPrice() {
+        return Price;
+    }
+
+    public void setPrice(String price) {
+        Price = price;
+    }
 
     public String getId() {
         return id;
@@ -30,14 +46,6 @@ public class ProductModel {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getCurrentPrice() {
-        return currentPrice;
-    }
-
-    public void setCurrentPrice(String currentPrice) {
-        this.currentPrice = currentPrice;
     }
 
     public String getPrePrice() {
