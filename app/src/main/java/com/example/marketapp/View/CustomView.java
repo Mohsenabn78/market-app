@@ -47,13 +47,12 @@ public class CustomView extends LinearLayout {
     }
     public void init(){
         View view= LayoutInflater.from(getContext()).inflate(custom_view,this,true);
-        recyclerView=view.findViewById(R.id.CV_RecyclerView);
+        recyclerView=(RecyclerView) view.findViewById(R.id.CV_RecyclerView);
 
     }
     public void setupView(ArrayList<ProductModel>productModelArrayList){
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false));
-
         ProductAdapter productAdapter=new ProductAdapter(getContext(),productModelArrayList);
         recyclerView.setAdapter(productAdapter);
     }

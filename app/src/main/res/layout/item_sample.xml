@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:cardCornerRadius="4dp"
+    app:cardCornerRadius="2dp"
     android:elevation="10dp">
 
     <LinearLayout
@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             tools:text="@string/app_name"
             android:textSize="15dp"
-            android:gravity="right"
+            android:gravity="end"
             android:maxLines="1"
             android:minLines="1"
             android:ellipsize="end"
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             tools:text="@string/app_name"
             android:textSize="15dp"
-            android:gravity="right"
+            android:gravity="end"
             android:maxLines="1"
             android:minLines="1"
             android:ellipsize="end"
