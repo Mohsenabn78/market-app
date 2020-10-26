@@ -4,6 +4,7 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.NetworkResponse;
 import com.android.volley.ParseError;
@@ -14,6 +15,7 @@ import com.google.gson.Gson;
 
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
+import java.util.Map;
 
 public class GsonRequest<T> extends Request<T> {
     private static final String TAG = "ApiRequest";
@@ -46,8 +48,27 @@ public class GsonRequest<T> extends Request<T> {
 
     }
 
+
+
     @Override
     protected void deliverResponse(T response) {
         listener.onResponse(response);
     }
 }
+
+/*    //Header and Body is null//
+
+    @Override
+    public Map<String, String> getHeaders() throws AuthFailureError {
+        return super.getHeaders();
+    }
+
+      @Override
+    public byte[] getBody() throws AuthFailureError {
+        return super.getBody();
+    }
+
+ */
+
+
+

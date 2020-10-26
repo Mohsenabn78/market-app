@@ -52,23 +52,15 @@
        tools:ignore="MissingConstraints" />
 
    <com.example.marketapp.View.CustomView
+       android:layout_marginTop="16dp"
+       android:padding="4dp"
        android:id="@+id/AM_customView_latest"
        android:layout_width="match_parent"
-       android:layout_height="wrap_content"
+       android:layout_height="470dp"
+       app:layout_constraintBottom_toBottomOf="parent"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toBottomOf="@+id/AM_bannerSlider">
+       app:layout_constraintTop_toBottomOf="@+id/AM_bannerSlider" />
 
-
-   </com.example.marketapp.View.CustomView>
-
-   <com.example.marketapp.View.CustomView
-       android:id="@+id/AM_customView_pop"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       app:layout_constraintEnd_toEndOf="parent"
-       app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toBottomOf="@+id/AM_customView_latest"
-       tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

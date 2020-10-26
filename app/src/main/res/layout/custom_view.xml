@@ -16,19 +16,21 @@
           android:textColor="@color/balck"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          tools:text="New Product"
+          android:text="New Product"
           android:textSize="18sp"/>
       <TextView
           android:id="@+id/CV_TextView_ViewAll"
           android:textColor="@color/colorAccent"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          tools:text="View All"
+          android:text="View All"
           android:textSize="18sp"
           android:layout_gravity="right"/>
   </FrameLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/CV_RecyclerView"
+        android:layout_marginTop="2dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />

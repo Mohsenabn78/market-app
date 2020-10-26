@@ -2,4 +2,4 @@
 this project is a marketing app 
 developed by mohsen abedini//
 my Email is mohsenabedini79ooo@gmail.com
-//app data is Fake and genreated in mockaro.com
+//app data is Fake and generated in moockaro.com

@@ -24,7 +24,9 @@ import static com.example.marketapp.R.layout.custom_view;
 //this class is a custom view for main activity
 
 public class CustomView extends LinearLayout {
+
     private RecyclerView recyclerView;
+
     public CustomView(Context context) {
         super(context);
         init();
@@ -45,15 +47,28 @@ public class CustomView extends LinearLayout {
         super(context, attrs, defStyleAttr, defStyleRes);
         init();
     }
-    public void init(){
+    private void init(){
         View view= LayoutInflater.from(getContext()).inflate(custom_view,this,true);
-        recyclerView=(RecyclerView) view.findViewById(R.id.CV_RecyclerView);
+        recyclerView= view.findViewById(R.id.CV_RecyclerView);
 
     }
-    public void setupView(ArrayList<ProductModel>productModelArrayList){
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false));
+    public void setupView(ArrayList<ProductModel>productModelArrayList){
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
         ProductAdapter productAdapter=new ProductAdapter(getContext(),productModelArrayList);
         recyclerView.setAdapter(productAdapter);
     }
+
+
+    /*
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+    }
+
+     */
+
+
+
 }
+

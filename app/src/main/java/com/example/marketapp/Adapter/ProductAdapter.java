@@ -54,11 +54,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
 
         public ProductHolder(@NonNull View itemView) {
             super(itemView);
-            imageView=(ImageView) itemView.findViewById(R.id.IS_ImageView);
-            Title=(TextView) itemView.findViewById(R.id.IS_Title);
-            description=(TextView) itemView.findViewById(R.id.IS_Des);
-            PrePrice=(TextView) itemView.findViewById(R.id.IS_PrePrice);
-            Price=(TextView) itemView.findViewById(R.id.IS_Price);
+            imageView= itemView.findViewById(R.id.IS_ImageView);
+            Title=itemView.findViewById(R.id.IS_Title);
+            description= itemView.findViewById(R.id.IS_Des);
+            PrePrice= itemView.findViewById(R.id.IS_PrePrice);
+            Price= itemView.findViewById(R.id.IS_Price);
         }
         public void ItemBind(ProductModel model){
             Title.setText(model.getTitle());
