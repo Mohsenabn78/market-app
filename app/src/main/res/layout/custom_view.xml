@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
@@ -11,13 +11,15 @@
       android:padding="4dp"
       android:layout_marginTop="2dp"
       >
+
       <TextView
+          android:textColor="#D32F2F"
           android:id="@+id/CV_TextView_NewProduct"
-          android:textColor="@color/balck"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="New Product"
-          android:textSize="18sp"/>
+          tools:text="New Product"
+
+          android:textSize="18sp" />
       <TextView
           android:id="@+id/CV_TextView_ViewAll"
           android:textColor="@color/colorAccent"
@@ -30,7 +32,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/CV_RecyclerView"
-        android:layout_marginTop="2dp"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />

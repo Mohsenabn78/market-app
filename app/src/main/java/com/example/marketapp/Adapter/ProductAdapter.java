@@ -30,7 +30,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
     @NonNull
     @Override
     public ProductHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view=LayoutInflater.from(context).inflate(R.layout.item_sample,parent,false);
+        View view=LayoutInflater.from(context).inflate(R.layout.item_model_sample,parent,false);
         return new  ProductHolder(view);
     }
 
@@ -65,7 +65,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
             description.setText(model.getDescription());
             PrePrice.setText(model.getPrePrice());
             Price.setText(model.getPrice());
-            Picasso.with(context).load(Uri.parse(model.getImageUrl())).into(imageView);
+            Picasso.with(itemView.getContext()).load(Uri.parse(model.getImageUrl())).into(imageView);
 
         }
     }

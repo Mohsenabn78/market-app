@@ -30,6 +30,7 @@ import ss.com.bannerslider.views.BannerSlider;
 public class MainActivity extends AppCompatActivity {
     private BannerSlider bannerSlider;
     private CustomView LatestCustomView;
+    private CustomView PopularCustomView;
 
 
 
@@ -38,11 +39,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setupView();
+        ProductRequest();
 
+    }
+
+
+
+
+    private void ProductRequest(){
         Type type=new TypeToken<ArrayList<ProductModel>>(){}.getType();
 
-        ApiService apiService=new ApiService(this);
-        apiService.getProduct(0, "https://api.mockaroo.com/api/babff5c0?count=100&key=b3c2ba40", new Response.Listener<ArrayList<ProductModel>>() {
+        //new product
+        ApiService NewProduct=new ApiService(this);
+        NewProduct.getProduct(0, "https://api.mockaroo.com/api/babff5c0?count=100&key=b3c2ba40", new Response.Listener<ArrayList<ProductModel>>() {
             @Override
             public void onResponse(ArrayList<ProductModel> response) {
                 Toast.makeText(MainActivity.this,"Fake Data Received From Server",Toast.LENGTH_SHORT).show();
@@ -53,6 +62,22 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(MainActivity.this,"data not Received from server",Toast.LENGTH_SHORT).show();
+
+
+            }
+        },type);
+
+        //popular product
+        ApiService PopularProduct=new ApiService(this);
+        PopularProduct.getProduct(0, "https://api.mockaroo.com/api/babff5c0?count=100&key=b3c2ba40", new Response.Listener<ArrayList<ProductModel>>() {
+            @Override
+            public void onResponse(ArrayList<ProductModel> response) {
+                PopularCustomView.setupView(response);
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
 
 
             }
@@ -76,6 +101,10 @@ public class MainActivity extends AppCompatActivity {
 
         //Init Custom View
         LatestCustomView = findViewById(R.id.AM_customView_latest);
+        LatestCustomView.setTextView("New Product");
+
+        PopularCustomView=findViewById(R.id.AM_customView_Popular);
+        PopularCustomView.setTextView("Popular Product");
     }
 
 }

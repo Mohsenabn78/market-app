@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -26,6 +27,7 @@ import static com.example.marketapp.R.layout.custom_view;
 public class CustomView extends LinearLayout {
 
     private RecyclerView recyclerView;
+    private TextView textView;
 
     public CustomView(Context context) {
         super(context);
@@ -50,6 +52,7 @@ public class CustomView extends LinearLayout {
     private void init(){
         View view= LayoutInflater.from(getContext()).inflate(custom_view,this,true);
         recyclerView= view.findViewById(R.id.CV_RecyclerView);
+        textView=view.findViewById(R.id.CV_TextView_NewProduct);
 
     }
 
@@ -58,6 +61,12 @@ public class CustomView extends LinearLayout {
         ProductAdapter productAdapter=new ProductAdapter(getContext(),productModelArrayList);
         recyclerView.setAdapter(productAdapter);
     }
+
+    public void setTextView(String string){
+         textView.setText(string);
+    }
+
+
 
 
     /*
