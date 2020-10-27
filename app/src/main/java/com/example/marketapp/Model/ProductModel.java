@@ -13,7 +13,7 @@ public class ProductModel {
     private String prePrice;
     @SerializedName("Price")
     private String Price;
-    @SerializedName("Url")
+   // @SerializedName("Url")
     private String imageUrl;
 
     public String getPrice() {

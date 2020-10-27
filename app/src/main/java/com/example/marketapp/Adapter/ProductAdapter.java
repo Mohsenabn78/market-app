@@ -65,7 +65,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
             description.setText(model.getDescription());
             PrePrice.setText(model.getPrePrice());
             Price.setText(model.getPrice());
-            Picasso.with(itemView.getContext()).load(Uri.parse(model.getImageUrl())).into(imageView);
+            //this is for test
+           // Picasso.with(itemView.getContext()).load(Uri.parse(model.getImageUrl())).into(imageView);
+            Picasso.with(itemView.getContext()).load(Uri.parse("https://www.target.com.au/medias/static_content/product/images/full/07/18/A1390718.jpg?impolicy=mobile_hero")).into(imageView);
 
         }
     }
