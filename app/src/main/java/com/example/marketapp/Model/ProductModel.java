@@ -1,8 +1,15 @@
 package com.example.marketapp.Model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
-public class ProductModel {
+import java.io.Serializable;
+
+//@ParcelablePlease
+public class ProductModel implements Serializable {
+
     @SerializedName("id")
     private String id;
     @SerializedName("Title")
@@ -63,4 +70,45 @@ public class ProductModel {
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
+
+
+
+    /*
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+       // ProductModel.writeToParcel(this, dest, flags);
+        dest.writeString(id);
+        dest.writeString(title);
+        dest.writeString(description);
+        dest.writeString(prePrice);
+        dest.writeString(Price);
+        dest.writeString(imageUrl);
+    }
+
+
+
+    public static final Creator<ProductModel> CREATOR = new Creator<ProductModel>() {
+        public ProductModel createFromParcel(Parcel source) {
+            ProductModel target = new ProductModel();
+          //  ProductModel.readFromParcel(target, source);
+            return target;
+        }
+
+        public ProductModel[] newArray(int size) {
+            return new ProductModel[size];
+        }
+    };
+
+
+
+     */
 }
+
+
+

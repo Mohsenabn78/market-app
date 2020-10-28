@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.android.volley.Response;
@@ -16,6 +18,7 @@ import com.example.marketapp.ApiService.ApiService;
 import com.example.marketapp.ApiService.GsonRequest;
 import com.example.marketapp.Model.ProductModel;
 import com.example.marketapp.View.CustomView;
+import com.example.marketapp.View.Prouducts_Activity;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.reflect.TypeToken;
 
@@ -31,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
     private BannerSlider bannerSlider;
     private CustomView LatestCustomView;
     private CustomView PopularCustomView;
+    private ProgressBar NewProductProgress;
+    private ProgressBar PopProductProgress;
+    private ArrayList<ProductModel>LastProductList=new ArrayList<>();
+    private ArrayList<ProductModel>popProductList=new ArrayList<>();
 
 
 
@@ -56,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(ArrayList<ProductModel> response) {
                 Toast.makeText(MainActivity.this,"Fake Data Received From Server",Toast.LENGTH_SHORT).show();
                 LatestCustomView.setupView(response);
+                LastProductList=response;
+                NewProductProgress.setVisibility(View.GONE);
 
             }
         }, new Response.ErrorListener() {
@@ -68,11 +77,14 @@ public class MainActivity extends AppCompatActivity {
         },type);
 
         //popular product
-        ApiService PopularProduct=new ApiService(this);
+        final ApiService PopularProduct=new ApiService(this);
         PopularProduct.getProduct(0, "https://api.mockaroo.com/api/babff5c0?count=100&key=b3c2ba40", new Response.Listener<ArrayList<ProductModel>>() {
             @Override
             public void onResponse(ArrayList<ProductModel> response) {
                 PopularCustomView.setupView(response);
+                popProductList=response;
+                PopProductProgress.setVisibility(View.GONE);
+
 
             }
         }, new Response.ErrorListener() {
@@ -99,12 +111,34 @@ public class MainActivity extends AppCompatActivity {
         bannerSlider.setBanners(banners);
 
 
+        //set ProgressBar
+        NewProductProgress=findViewById(R.id.Am_newproduct_progress);
+        PopProductProgress=findViewById(R.id.Am_popproduct_progress);
+
         //Init Custom View
         LatestCustomView = findViewById(R.id.AM_customView_latest);
         LatestCustomView.setTextView("New Product");
+        LatestCustomView.viewAllOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent lastIntent = new Intent(MainActivity.this, Prouducts_Activity.class);
+                lastIntent.putExtra(Prouducts_Activity.Intent_Key, LastProductList);
+                startActivity(lastIntent);
 
-        PopularCustomView=findViewById(R.id.AM_customView_Popular);
+            }
+        });
+
+
+        PopularCustomView = findViewById(R.id.AM_customView_Popular);
         PopularCustomView.setTextView("Popular Product");
-    }
+        PopularCustomView.viewAllOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent Intent2 = new Intent(MainActivity.this, Prouducts_Activity.class);
+                Intent2.putExtra(Prouducts_Activity.Intent_Key, popProductList);
+                startActivity(Intent2);
+            }
+        });
 
+    }
 }

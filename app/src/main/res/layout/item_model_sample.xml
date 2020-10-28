@@ -4,6 +4,8 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:clickable="true"
+    android:foreground="?attr/selectableItemBackground"
     app:contentPadding="2dp"
     android:layout_margin="4dp"
     app:cardCornerRadius="2dp"

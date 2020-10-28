@@ -21,7 +21,7 @@
 
           android:textSize="18sp" />
       <TextView
-
+          
           android:id="@+id/CV_TextView_ViewAll"
           android:clickable="true"
           android:foreground="?attr/selectableItemBackground"

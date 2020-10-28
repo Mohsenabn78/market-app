@@ -28,6 +28,7 @@ public class CustomView extends LinearLayout {
 
     private RecyclerView recyclerView;
     private TextView textView;
+    private TextView viewAll;
 
     public CustomView(Context context) {
         super(context);
@@ -53,6 +54,7 @@ public class CustomView extends LinearLayout {
         View view= LayoutInflater.from(getContext()).inflate(custom_view,this,true);
         recyclerView= view.findViewById(R.id.CV_RecyclerView);
         textView=view.findViewById(R.id.CV_TextView_NewProduct);
+        viewAll=view.findViewById(R.id.CV_TextView_ViewAll);
 
     }
 
@@ -66,6 +68,10 @@ public class CustomView extends LinearLayout {
          textView.setText(string);
     }
 
+
+    public void viewAllOnClickListener(OnClickListener onClickListener){
+        viewAll.setOnClickListener(onClickListener);
+    }
 
 
 
