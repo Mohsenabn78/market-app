@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#00020C</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="TextSplash">#000</color>
-    <color name="actionbar">#FBC02D</color>
+    <color name="actionbar">#FFA000</color>
     <color name="white">#fff</color>
     <color name="balck">#000</color>
 </resources>

@@ -33,19 +33,53 @@
                 android:textColor="@color/white"
                 android:textSize="18dp" />
 
-            <ImageView
-                android:id="@+id/AM_ImageView_AddToCart"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="right"
-                android:layout_marginTop="4dp"
-                android:src="@drawable/ic_baseline_add_shopping_cart_24" />
+             <ImageView
+                 android:id="@+id/AM_ImageView_AddToCart"
+                 android:layout_width="30dp"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="right"
+                 android:layout_marginTop="4dp"
+                 android:clickable="true"
+                 android:foreground="?attr/selectableItemBackground"
+                 android:src="@drawable/ic_baseline_add_shopping_cart_24" />
          </FrameLayout>
 
-         <FrameLayout
+         <LinearLayout
+             android:orientation="horizontal"
              android:layout_width="match_parent"
              android:layout_height="?attr/actionBarSize"
-             android:background="#FFA000"/>
+             android:background="#FFA000"
+             android:weightSum="3"
+             >
+             <ImageView
+                 android:id="@+id/Tablayout_bike"
+                 android:clickable="true"
+                 android:foreground="?attr/selectableItemBackground"
+                 android:layout_width="match_parent"
+                 android:layout_height="40dp"
+                 android:src="@drawable/ic_baseline_electric_bike_24"
+                 android:layout_weight="1"
+                 android:layout_gravity="center"/>
+             <ImageView
+                 android:clickable="true"
+                 android:foreground="?attr/selectableItemBackground"
+                 android:id="@+id/Tablayout_car"
+                 android:layout_width="match_parent"
+                 android:layout_height="40dp"
+                 android:src="@drawable/ic_baseline_electric_car_24"
+                 android:layout_weight="1"
+                 android:layout_gravity="center"/>
+             <ImageView
+                 android:clickable="true"
+                 android:foreground="?attr/selectableItemBackground"
+                 android:id="@+id/Tablayout_mopo"
+                 android:layout_width="match_parent"
+                 android:layout_height="40dp"
+                 android:src="@drawable/ic_baseline_electric_moped_24"
+                 android:layout_weight="1"
+                 android:layout_gravity="center"/>
+
+         </LinearLayout>
       </com.google.android.material.appbar.AppBarLayout>
 
    <ScrollView

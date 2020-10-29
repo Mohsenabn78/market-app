@@ -2,6 +2,7 @@ package com.example.marketapp.View;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.marketapp.Adapter.ProductAdapter;
+import com.example.marketapp.MainActivity;
 import com.example.marketapp.Model.ProductModel;
 import com.example.marketapp.R;
 
@@ -58,9 +60,11 @@ public class CustomView extends LinearLayout {
 
     }
 
-    public void setupView(ArrayList<ProductModel>productModelArrayList){
+
+    public void setupView(final ArrayList<ProductModel>productModelArrayList, ProductAdapter.ItemClickListener itemClickListener){
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
-        ProductAdapter productAdapter=new ProductAdapter(getContext(),productModelArrayList);
+        ProductAdapter productAdapter=new ProductAdapter(getContext(), productModelArrayList, itemClickListener );
+
         recyclerView.setAdapter(productAdapter);
     }
 

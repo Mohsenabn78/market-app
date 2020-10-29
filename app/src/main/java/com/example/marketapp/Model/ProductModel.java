@@ -73,6 +73,8 @@ public class ProductModel implements Serializable {
 
 
 
+    //parcelable
+
     /*
 
     @Override
@@ -83,12 +85,12 @@ public class ProductModel implements Serializable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
        // ProductModel.writeToParcel(this, dest, flags);
-        dest.writeString(id);
-        dest.writeString(title);
-        dest.writeString(description);
-        dest.writeString(prePrice);
-        dest.writeString(Price);
-        dest.writeString(imageUrl);
+        dest.writeString(this.id);
+        dest.writeString(this.title);
+        dest.writeString(this.description);
+        dest.writeString(this.prePrice);
+        dest.writeString(this.Price);
+        dest.writeString(this.imageUrl);
     }
 
 

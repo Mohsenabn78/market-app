@@ -40,7 +40,7 @@ public class Prouducts_Activity extends AppCompatActivity {
         });
 
 
-        Intent intent =getIntent();
+        final Intent intent =getIntent();
         IntentGetModel= (ArrayList<ProductModel>) intent.getSerializableExtra(Intent_Key);
 
         //IntentGetModel =intent.getParcelableExtra(Intent_Key);
@@ -48,7 +48,16 @@ public class Prouducts_Activity extends AppCompatActivity {
         recyclerView=findViewById(R.id.AP_recycler);
 
         recyclerView.setLayoutManager(new GridLayoutManager(this,2));
-        ProductAdapter productAdapter=new ProductAdapter(this,IntentGetModel);
+        ProductAdapter productAdapter=new ProductAdapter(this, IntentGetModel, new ProductAdapter.ItemClickListener() {
+            @Override
+            public void ItemIdListener(ProductModel productModel) {
+                
+                Intent intent2=new Intent(Prouducts_Activity.this,ProductDetail.class);
+                intent2.putExtra(ProductDetail.PRODUCT_ID,productModel);
+                startActivity(intent2);
+            }
+        });
+
         recyclerView.setAdapter(productAdapter);
 
 

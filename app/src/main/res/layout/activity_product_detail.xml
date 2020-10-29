@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.ProductDetail"
+    android:orientation="vertical"
+    >
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/actionbar">
+        <ImageView
+            android:id="@+id/PD_Backbutton"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:layout_width="35dp"
+            android:layout_gravity="left|center"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            />
+        <TextView
+            android:id="@+id/PD_TollbarText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:gravity="right|center"
+            tools:text="@string/app_name"
+            android:textColor="@color/white"
+            android:layout_marginRight="4dp"/>
+    </androidx.appcompat.widget.Toolbar>
+
+   <ss.com.bannerslider.views.BannerSlider
+       android:id="@+id/PD_Banner"
+       android:layout_marginTop="2dp"
+       android:layout_width="match_parent"
+       android:layout_height="200dp"
+       app:defaultIndicators="square"
+       app:animateIndicators="true"
+       app:emptyView="@+id/Am_bannerSlider_progress"
+       app:loopSlides="true"/>
+    <Button
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:id="@+id/PD_AddToCart"
+        android:layout_marginTop="8dp"
+        android:background="#C6F10F0F"
+        android:padding="2dp"
+        android:layout_width="120dp"
+        android:layout_marginLeft="4dp"
+        android:layout_height="50dp"
+        android:text="Add To Basket"
+        android:textColor="@color/white"
+        >
+
+    </Button>
+    <TextView
+        android:padding="4dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:id="@+id/PD_Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="@string/app_name"
+        android:textSize="18dp"
+        android:ellipsize="end"
+        android:textColor="@color/balck"
+        />
+
+    <TextView
+        android:id="@+id/PD_Des"
+        android:padding="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="@string/app_name"
+        android:textSize="15dp"
+        android:layout_marginTop="4dp"
+        android:ellipsize="end"
+        android:textColor="@color/balck"
+        android:layout_marginBottom="4dp"/>
+
+    <TextView
+        android:id="@+id/PD_PrePrice"
+        android:layout_width="match_parent"
+        android:padding="4dp"
+        android:layout_height="wrap_content"
+        tools:text="@string/app_name"
+        android:textSize="15dp"
+        android:gravity="end"
+
+        android:ellipsize="end"
+        android:layout_marginBottom="4dp"
+        />
+    <TextView
+        android:padding="4dp"
+        android:id="@+id/PD_Price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="@string/app_name"
+        android:textSize="15dp"
+        android:gravity="end"
+        android:ellipsize="end"
+        android:layout_marginBottom="4dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="User Comment"
+        android:padding="4dp"
+        android:textColor="@color/colorAccent"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorAccent"
+        android:layout_marginTop="2dp"/>
+    <TextView
+        android:padding="4dp"
+        android:id="@+id/PD_UserComment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+
+
+</LinearLayout>

@@ -20,10 +20,12 @@ import java.util.ArrayList;
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductHolder> {
     private Context context;
     private ArrayList<ProductModel> productModelArrayList1;
+    private ItemClickListener itemClickListener;
 
-    public ProductAdapter(Context context,ArrayList<ProductModel>productModelArrayList){
+    public ProductAdapter(Context context,ArrayList<ProductModel>productModelArrayList,ItemClickListener itemClickListener){
         this.context=context;
         this.productModelArrayList1=productModelArrayList;
+        this.itemClickListener=itemClickListener;
 
     }
 
@@ -35,9 +37,18 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ProductHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ProductHolder holder, int position) {
 
         holder.ItemBind(productModelArrayList1.get(position));
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int pos=holder.getAdapterPosition();
+                ProductModel pr=productModelArrayList1.get(pos);
+                itemClickListener.ItemIdListener(pr);
+            }
+        });
+
     }
 
     @Override
@@ -67,8 +78,14 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
             Price.setText(model.getPrice());
             //this is for test
            // Picasso.with(itemView.getContext()).load(Uri.parse(model.getImageUrl())).into(imageView);
-            Picasso.with(itemView.getContext()).load(Uri.parse("https://www.target.com.au/medias/static_content/product/images/full/07/18/A1390718.jpg?impolicy=mobile_hero")).into(imageView);
+            Picasso.with(itemView.getContext()).load(Uri.parse("https://65e81151f52e248c552b-fe74cd567ea2f1228f846834bd67571e.ssl.cf1.rackcdn.com/ldm-images/2020-Kia-Sportage-Clear-White-Color.jpg")).into(imageView);
 
         }
+
+    }
+
+    public interface ItemClickListener {
+        void ItemIdListener(ProductModel productModel);
     }
 }
+
